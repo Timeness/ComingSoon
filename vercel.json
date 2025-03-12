@@ -8,6 +8,9 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/backend/server.js" },
+    { "src": "/index.html", "dest": "/frontend/index.html" },
+    { "src": "/login.html", "dest": "/frontend/login.html" },
+    { "src": "/docs.html", "dest": "/frontend/docs.html" },
     { "src": "/(.*)", "dest": "/frontend/index.html" }
   ]
 }
