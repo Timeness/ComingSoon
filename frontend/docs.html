@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JsonicDB Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="w-full p-6">
+        <h1 class="text-3xl font-bold mb-4">JsonicDB API Documentation</h1>
+        <p class="mb-4">Example usage of JsonicDB API in various programming languages.</p>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-2">Shell Example</h2>
+            <pre class="bg-gray-800 p-4 rounded"><code>curl -X POST -H "Content-Type: application/json" -d '{"username":"user","password":"password"}' http://localhost:5000/api/register</code></pre>
+            <button class="bg-blue-500 p-2 rounded mt-2">Copy</button>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-2">Python Example</h2>
+            <pre class="bg-gray-800 p-4 rounded"><code>import requests
+url = "http://localhost:5000/api/register"
+data = {"username": "user", "password": "password"}
+response = requests.post(url, json=data)
+print(response.json())</code></pre>
+            <button class="bg-blue-500 p-2 rounded mt-2">Copy</button>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-2">JavaScript Example</h2>
+            <pre class="bg-gray-800 p-4 rounded"><code>const response = await fetch("http://localhost:5000/api/register", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ username: "user", password: "password" })
+});
+const data = await response.json();
+console.log(data);</code></pre>
+            <button class="bg-blue-500 p-2 rounded mt-2">Copy</button>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-2">Ruby Example</h2>
+            <pre class="bg-gray-800 p-4 rounded"><code>require 'net/http'
+require 'json'
+
+uri = URI('http://localhost:5000/api/register')
+response = Net::HTTP.post(uri, { username: 'user', password: 'password' }.to_json, "Content-Type" => "application/json")
+puts response.body</code></pre>
+            <button class="bg-blue-500 p-2 rounded mt-2">Copy</button>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-2">Java Example</h2>
+            <pre class="bg-gray-800 p-4 rounded"><code>import java.net.*;
+import java.io.*;
+
+public class Example {
+    public static void main(String[] args) throws IOException {
+        URL url = new URL("http://localhost:5000/api/register");
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("POST");
+        con.setDoOutput(true);
+        String jsonData = "{\"username\":\"user\",\"password\":\"password\"}";
+        try (OutputStream os = con.getOutputStream()) {
+            byte[] input = jsonData.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+            System.out.println(response.toString());
+        }
+    }
+}</code></pre>
+            <button class="bg-blue-500 p-2 rounded mt-2">Copy</button>
+        </div>
+    </div>
+</body>
+</html>
